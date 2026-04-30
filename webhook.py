@@ -24,7 +24,9 @@ def receber_dados():
     
     # 4. Respondemos ao serviço que enviou (Status 200 = Sucesso)
     # É importante responder rápido para o serviço não achar que deu erro.
-    return jsonify({"mensagem": "Recebido com sucesso!"}), 200
+    return jsonify({"mensagem": "Recebido com sucesso!","Dados recebidos": dados}), 200
+
+
 
 if __name__ == "__main__":
     app.run(port=5000)
