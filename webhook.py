@@ -15,11 +15,16 @@ app = Flask(__name__)
 def meu_webhook():
     # Captura os dados enviados no corpo da requisição
     dados_recebidos = request.get_json()
+    id_usuario = dados_recebidos.get('Id')
+    status = dados_recebidos.get('Status')
+    cliente = dados_recebidos.get('Cliente')
 
     # Retorna a mensagem de sucesso junto com os dados que chegaram
     return jsonify({
         "mensagem": "Recebido com sucesso!",
-        "dados_enviados": dados_recebidos
+        "Código do Cliente:": id_usuario,
+        "Nome do Cliente:": cliente,
+        "Situação do Cliente:": status
     }), 200
 
 
